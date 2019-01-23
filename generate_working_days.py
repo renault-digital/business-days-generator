@@ -180,7 +180,10 @@ def generate_wordays(zones, years, filename):
                 min_day, max_day = calendar.monthrange(year, month)
                 min_date = date(year, month, 1)
                 max_date = date(year, month, max_day)
-                working_days_nb = cal.get_working_days_delta(min_date, max_date)
+                working_days_nb = 0
+                for day in range(1, max_day + 1):
+                    if cal.is_working_day(date(year, month, day)) is True:
+                        working_days_nb += 1
                 working_days.append((country, year, month, working_days_nb))
 
     workdays_df = pd.DataFrame(working_days[1:], columns=working_days[0])
