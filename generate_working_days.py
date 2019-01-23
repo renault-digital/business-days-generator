@@ -176,6 +176,7 @@ def generate_wordays(zones, years, filename):
         except KeyError:
             print("Country {} is not available.".format(country))
         for year in years:
+            year = int(year)
             for month in range(1, 13):
                 min_day, max_day = calendar.monthrange(year, month)
                 min_date = date(year, month, 1)
