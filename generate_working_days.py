@@ -158,13 +158,13 @@ country_mapping = {
 
 @click.command()
 @click.argument('filename')
-@click.option('--years', '-y', multiple=True, help='Required years (if void will generate 2010 to 2020).')
-@click.option('--zones', '-z', multiple=True, help='Zone name in English [europe|africa|asia|america|oceania]')
+@click.option('--years', '-y', multiple=True, help='Required years (if void will generate 2008 to 2030).')
+@click.option('--zones', '-z', multiple=True, help='Zone name in English [europe|africa|asia|america|oceania] (default: europe)')
 
-def generate_wordays(zones, years, filename):
+def generate_workdays(zones, years, filename):
     working_days = [('country', 'year', 'month', 'workdays_nb')]
     if len(years) == 0:
-        years = range(2010, 2021)
+        years = range(2008, 2031)
     if len(zones) == 0:
         zones = ['europe',]
     countries = []
@@ -191,4 +191,4 @@ def generate_wordays(zones, years, filename):
     workdays_df.to_excel(filename, index=False)
 
 if __name__ == '__main__':
-    generate_wordays()
+    generate_workdays()
