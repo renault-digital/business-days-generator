@@ -1,4 +1,4 @@
-# Workdays generator
+# Business days generator
 
 If you need to get an Excel file with the number of work days per month for a give country, this CLI may be for you. The workdays generator is based on the [`workalendar`](https://github.com/peopledoc/workalendar) package from peopledoc.
 
